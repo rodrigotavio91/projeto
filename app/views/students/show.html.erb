@@ -1,0 +1,5 @@
+<%= render "layouts/message" %>
+
+<h2><%= @student.name %> <small><%= @student.register_number %></small></h2>
+
+<p><%= link_to "Editar", edit_student_path(@student) %></p>

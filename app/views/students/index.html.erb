@@ -1,0 +1,30 @@
+<h2>Estudantes</h2>
+
+<p>
+  <%= link_to "Cadastrar", new_student_path, class: "btn btn-default" %>
+</p>
+<%= render "layouts/message" %>
+<table class="table table-bordered">
+  <thead>
+  	<tr>
+  	  <th>Id</th>
+  	  <th>Nome</th>
+  	  <th>Número de matrícula</th>
+  	  <th></th>
+  	</tr>
+  </thead>
+  <tbody>
+  	<% @students.each do |student| %>
+  	  <tr>
+  	    <td><%= student.id %></td>
+  	    <td><%= student.name %></td>
+  	    <td><%= student.register_number %></td>
+  	    <td>
+  	      <%= link_to "Perfil", student_path(student) %>
+  	      <%= link_to "Editar", edit_student_path(student) %>
+  	      <%= link_to "Excluir", student, method: :delete, data: {confirm: "Tem certeza?"} %>
+  	    </td>
+  	  </tr>
+  	<% end %>
+  </tbody>
+</table>
