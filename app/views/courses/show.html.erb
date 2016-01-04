@@ -1,0 +1,6 @@
+<%= render "layouts/message" %>
+
+<h2><%= @course.name %></h2>
+
+<p><%= @course.description %></p>
+<p><%= link_to "Editar", edit_course_path(@course) %></p>

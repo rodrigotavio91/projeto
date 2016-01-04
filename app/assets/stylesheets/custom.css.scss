@@ -1,2 +1,17 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+/* Tipografia */
+.container {
+  margin-top: 50px;
+  h2 {
+    color: #777;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+  }
+
+  .sidebar-menu {
+    margin-top: 60px;
+  }
+}
