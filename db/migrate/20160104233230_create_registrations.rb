@@ -7,8 +7,8 @@ class CreateRegistrations < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    add_index :relationships, :student_id
-    add_index :relationships, :course_id
-    add_index :relationships, [:student_id, :course_id], unique: true
+    add_index :registrations, :student_id
+    add_index :registrations, :course_id
+    add_index :registrations, [:student_id, :course_id], unique: true
   end
 end
