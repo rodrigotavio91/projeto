@@ -1,6 +1,38 @@
-<%= render "layouts/message" %>
-
 <h2><%= @course.name %></h2>
 
 <p><%= @course.description %></p>
+
 <p><%= link_to "Editar", edit_course_path(@course) %></p>
+
+<div class="row">
+	<div class="col-md-8">
+	  <%= render "layouts/message" %>
+	  <% if @course.students.count == 0 %>
+	  	<p class="alert alert-warning">Nenhum aluno matriculado no curso</p>
+	  <% else %>
+	  	<h3>Alunos</h3>
+	  	<table class="table">
+	  	  <thead>
+	  	  	<tr>
+	  	  	  <th>Nome</th>
+	  	  	  <th>Data da matrícula</th>
+	  	  	  <th></th>
+	  	  	 </tr>
+	  	  </thead>
+	  	  <tbody>
+	  	  	<% @course.students.each do |registration| %>
+	  	  	  <tr>
+	  	  	  	<td><%= registration.student.name %></td>
+	  	  	  	<td><%= registration.created_at %></td>
+	  	  	  	<td>
+	  	  	  		<%= link_to "Excluir", registration, method: :delete, data: {confirm: "Tem certeza?"} %>
+	  	  	  	</td>
+	  	  	  </tr>
+	  	  	<% end %>
+	  	  </tbody>
+	  	</table>
+	  <% end %>
+	</div>
+</div>
+<%= link_to "Voltar", courses_path, class: "btn btn-danger" %>
+

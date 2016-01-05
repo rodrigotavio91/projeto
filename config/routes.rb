@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  
   root 'index#home'
 
   resources :students
   resources :courses
+  resources :registrations, only: [:new, :create, :destroy]
 
   # Example resource route with options:
   #   resources :products do

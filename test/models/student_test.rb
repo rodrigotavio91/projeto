@@ -30,4 +30,10 @@ class StudentTest < ActiveSupport::TestCase
   	@student.register_number = "a" * 46
   	assert_not @student.valid?
   end
+
+  test "register number should be unique" do
+    duplicate_student = @student.dup
+    @student.save
+    assert_not duplicate_student.valid?
+  end
 end

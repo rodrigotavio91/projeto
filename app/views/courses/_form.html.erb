@@ -15,6 +15,12 @@
     <%= f.label "descriçao" %>
     <%= f.text_area :description, class: "form-control" %>
   </div>
+
+  <div class="checkbox">
+    <label>
+      <%= f.check_box :status, {}, 1, 0 %> Ativo
+    </label>
+  </div>
   <%= f.submit "Salvar", class: "btn btn-primary" %>
   <%= link_to "Voltar", courses_path, class: "btn btn-danger" %>
 <% end %>

@@ -16,5 +16,12 @@
     <%= f.text_field :register_number, class: "form-control", 
                                        placeholder: "Número da matrícula do aluno" %>
   </div>
+  <div class="checkbox">
+    <label>
+      <%= f.check_box :status, {}, 1, 0 %> Ativo
+    </label>
+  </div>
+  
   <%= f.submit "Salvar", class: "btn btn-primary" %>
+  <%= link_to "Voltar", students_path, class: "btn btn-danger" %>
 <% end %>
