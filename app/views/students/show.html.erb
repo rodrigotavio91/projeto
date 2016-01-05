@@ -1,9 +1,12 @@
 <h2><%= @student.name %> <small><%= @student.register_number %></small></h2>
-<p><%= link_to "Editar", edit_student_path(@student) %></p>
 
 <div class="row">
   <div class="col-md-8">
+    
     <%= render "layouts/message" %>
+
+    <p><%= link_to "Editar", edit_student_path(@student) %></p>
+
     <% if @student.courses.count == 0 %>
   	  <p class="alert alert-warning">O aluno não esta matrículado em nenhum curso</p>
     <% else %>

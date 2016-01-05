@@ -2,11 +2,13 @@
 
 <p><%= @course.description %></p>
 
-<p><%= link_to "Editar", edit_course_path(@course) %></p>
-
 <div class="row">
 	<div class="col-md-8">
+	  
 	  <%= render "layouts/message" %>
+
+	  <p><%= link_to "Editar", edit_course_path(@course) %></p>
+
 	  <% if @course.students.count == 0 %>
 	  	<p class="alert alert-warning">Nenhum aluno matriculado no curso</p>
 	  <% else %>

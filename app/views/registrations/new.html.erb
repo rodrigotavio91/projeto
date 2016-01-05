@@ -1,26 +1,28 @@
-<div class="col-md-6">
-  <h2>Matricular Estudante</h2>
-  <%= form_for @registration do |f| %>
-  	<% if @registration.errors.any? %>
-      <div class="alert alert-danger">
-        <% @registration.errors.full_messages.each do |message| %>
-          <p><%= message %></p>
-      	<% end %>
+<div class="row">
+  <div class="col-md-6">
+    <h2>Matricular Estudante</h2>
+    <%= form_for @registration do |f| %>
+    	<% if @registration.errors.any? %>
+        <div class="alert alert-danger">
+          <% @registration.errors.full_messages.each do |message| %>
+            <p><%= message %></p>
+        	<% end %>
+        </div>
+      <% end %>
+
+      <%= render "layouts/message" %>
+
+      <div class="form-group">
+        <%= f.label :curso %>
+        <%= f.select :course_id, @courses.map{ |c| [c.name, c.id] }, {}, class: "form-control" %>
       </div>
+
+      <div class="form-group">
+        <%= f.label :estudante %>
+        <%= f.select :student_id, @students.map{ |c| [c.name, c.id] }, {}, class: "form-control" %>
+      </div>
+
+      <%= f.submit "Matricular", class: "btn btn-primary" %>
     <% end %>
-
-    <%= render "layouts/message" %>
-
-    <div class="form-group">
-      <%= f.label :curso %>
-      <%= f.select :course_id, @courses.map{ |c| [c.name, c.id] }, {}, class: "form-control" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :estudante %>
-      <%= f.select :student_id, @students.map{ |c| [c.name, c.id] }, {}, class: "form-control" %>
-    </div>
-
-    <%= f.submit "Matricular", class: "btn btn-primary" %>
-  <% end %>
+  </div>
 </div>
