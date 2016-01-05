@@ -14,12 +14,16 @@
 
       <div class="form-group">
         <%= f.label :curso %>
-        <%= f.select :course_id, @courses.map{ |c| [c.name, c.id] }, {}, class: "form-control" %>
+        <%= f.select :course_id, @courses.map{ |c| [c.name, c.id] }, 
+                     {prompt: "Selecione um curso..."}, 
+                     class: "form-control" %>
       </div>
 
       <div class="form-group">
         <%= f.label :estudante %>
-        <%= f.select :student_id, @students.map{ |c| [c.name, c.id] }, {}, class: "form-control" %>
+        <%= f.select :student_id, @students.map{ |c| [c.name, c.id] }, 
+                     {prompt: "Selecione um estudante..."},
+                     class: "form-control" %>
       </div>
 
       <%= f.submit "Matricular", class: "btn btn-primary" %>
