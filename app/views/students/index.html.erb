@@ -5,27 +5,34 @@
 </div>
 
 <%= render "layouts/message" %>
-<table class="table table-bordered">
-  <thead>
-  	<tr>
-  	  <th>Id</th>
-  	  <th>Nome</th>
-  	  <th>Número de matrícula</th>
-  	  <th></th>
-  	</tr>
-  </thead>
-  <tbody>
-  	<% @students.each do |student| %>
-  	  <tr>
-  	    <td><%= student.id %></td>
-  	    <td><%= student.name %></td>
-  	    <td><%= student.register_number %></td>
-  	    <td>
-  	      <%= link_to "Perfil", student_path(student) %>
-  	      <%= link_to "Editar", edit_student_path(student) %>
-  	      <%= link_to "Excluir", student, method: :delete, data: {confirm: "Tem certeza?"} %>
-  	    </td>
-  	  </tr>
-  	<% end %>
-  </tbody>
-</table>
+
+<% if @students.count > 0 %>
+  <table class="table table-bordered">
+    <thead>
+    	<tr>
+    	  <th>Id</th>
+    	  <th>Nome</th>
+    	  <th>Número de matrícula</th>
+    	  <th></th>
+    	</tr>
+    </thead>
+    <tbody>
+    	<% @students.each do |student| %>
+    	  <tr>
+    	    <td><%= student.id %></td>
+    	    <td><%= student.name %></td>
+    	    <td><%= student.register_number %></td>
+    	    <td>
+    	      <%= link_to "Perfil", student_path(student) %>
+    	      <%= link_to "Editar", edit_student_path(student) %>
+    	      <%= link_to "Excluir", student, method: :delete, data: {confirm: "Tem certeza?"} %>
+    	    </td>
+    	  </tr>
+    	<% end %>
+    </tbody>
+  </table>
+
+<% else %>
+  <p class="alert alert-warning">Nenhum estudante cadastrado</p>
+<% end %>
+

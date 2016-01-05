@@ -36,7 +36,7 @@ class CoursesController < ApplicationController
 
   def destroy
     @course.destroy
-    redirect_to course_url, notice: 'Curso excluído com sucesso.'
+    redirect_to courses_url, notice: 'Curso excluído com sucesso.'
   end
 
   private
